@@ -57,42 +57,41 @@
             background: linear-gradient(to bottom, #ffffff, #fdf2f0);
         }
         
-        /* SLIM HEADER & CROPPED LOGO LOGIC */
-        .nav-container {
-            height: 50px; /* Slimmer header */
+        /* THE "FIX" FOR THE TALL HEADER */
+        .nav-bar-slim {
+            height: 60px; /* Forces a slim header */
+            max-height: 60px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
 
         .logo-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
-            width: 180px; 
-            overflow: hidden; /* This acts as the crop frame */
+            height: 60px; 
+            width: 160px; 
+            overflow: hidden; /* This hides the "empty space" of the SVG */
             position: relative;
         }
 
         .main-logo {
-            /* We make the image huge but use negative margins to center the actual art */
-            height: 350px; 
+            /* We zoom the image and pull it up to ignore the SVG's empty padding */
+            height: 300px; 
             width: auto;
             max-width: none;
-            margin-top: -15px; /* Pulls the logo art UP to center it in the slim bar */
+            margin-top: -20px; /* Pulls the actual art up into the 60px bar */
             mix-blend-mode: multiply;
             transition: transform 0.3s ease;
         }
         
         .logo-wrapper:hover .main-logo {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         @media (max-width: 640px) {
-            .nav-container { height: 60px; }
-            .logo-wrapper { width: 140px; }
-            .main-logo { height: 280px; margin-top: -10px; }
+            .nav-bar-slim, .logo-wrapper { height: 50px; }
+            .main-logo { height: 240px; margin-top: -15px; }
         }
 
         .contact-btn:hover {
@@ -106,20 +105,20 @@
 
     <!-- Header -->
     <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-petal px-8">
-        <div class="max-w-6xl mx-auto nav-container">
+        <div class="max-w-6xl mx-auto nav-bar-slim justify-between">
             
-            <!-- LOGO SECTION (Slim & Cropped) -->
+            <!-- LOGO SECTION -->
             <a href="#" class="logo-wrapper">
                 <img src="HudyTravels.svg" 
                      alt="HUDY Travels Logo" 
                      class="main-logo">
             </a>
 
-            <!-- NAV LINKS (Aligned to slim header) -->
+            <!-- NAV LINKS -->
             <div class="hidden md:flex gap-10 items-center">
                 <a href="#destinations" class="text-[10px] uppercase tracking-[0.2em] hover:text-brandPink transition-colors font-medium">Destinations</a>
                 <a href="#about" class="text-[10px] uppercase tracking-[0.2em] hover:text-brandPink transition-colors font-medium">About</a>
-                <a href="mailto:hello@hudytravels.com" class="bg-brandPink text-white px-7 py-2.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-brandBlue transition-all shadow-sm">Inquire</a>
+                <a href="mailto:hello@hudytravels.com" class="bg-brandPink text-white px-6 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-brandBlue transition-all shadow-sm">Inquire</a>
             </div>
         </div>
     </nav>
