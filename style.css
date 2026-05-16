@@ -23,20 +23,24 @@ body {
 
 .logo-box {
     position: relative;
-    width: 180px; 
+    width: 160px; /* Slimmed down width */
     height: 64px;
     overflow: hidden; 
 }
 
 .main-logo {
     position: absolute;
-    /* --- EDIT HEIGHT BELOW TO CHANGE LOGO SIZE --- */
-    height: 100px; 
+    /* ----------------------------------------------------------- */
+    /* ADJUST DESKTOP LOGO SIZE HERE                               */
+    /* I reduced this to 200px to make it sit better in the bar    */
+    /* ----------------------------------------------------------- */
+    height: 200px; 
     width: auto;
     max-width: none;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -49%); 
+    /* Centering logic */
+    transform: translate(-50%, -50%); 
     mix-blend-mode: multiply; 
     pointer-events: none;
 }
@@ -45,10 +49,13 @@ body {
 @media (max-width: 640px) {
     .navbar, .nav-container, .logo-box { height: 56px !important; }
     .main-logo { 
-        height: 220px; 
-        transform: translate(-50%, -48.5%); 
+        /* ----------------------------------------------------------- */
+        /* ADJUST MOBILE LOGO SIZE HERE                                */
+        /* ----------------------------------------------------------- */
+        height: 160px; 
+        transform: translate(-50%, -50%); 
     }
-    .logo-box { width: 140px; }
+    .logo-box { width: 120px; }
 }
 
 /* --- NAVIGATION LINKS --- */
