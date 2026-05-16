@@ -1,13 +1,12 @@
 /* TROUBLESHOOTING: 
    If your CSS isn't showing up on your site:
    1. Ensure index.html has: <link rel="stylesheet" href="style.css">
-   2. Ensure style.css and index.html are in the SAME folder on GitHub.
-   3. On your browser, press Ctrl+F5 (Windows) or Cmd+Shift+R (Mac) to clear the cache.
+   2. On your browser, press Cmd+Shift+R (Mac) or Ctrl+F5 (Windows) to hard refresh.
 */
 
 /* --- BASE STYLES --- */
 html { 
-    scroll-padding-top: 120px; /* Increased to account for taller navbar */
+    scroll-padding-top: 120px; 
 }
 
 body { 
@@ -17,14 +16,15 @@ body {
 
 /* --- LOGO & NAVBAR ENGINE --- */
 .navbar {
-    /* INCREASED HEIGHT: Changed from 64px to 100px */
-    height: 140px !important;
+    height: 100px !important;
     background-color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
 .nav-container {
-    /* MATCH NAVBAR HEIGHT */
-    height: 140px;
+    height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,30 +33,31 @@ body {
 .logo-box {
     position: relative;
     width: 200px; 
-    height: 140px; /* MATCH NAVBAR HEIGHT */
-    overflow: hidden; 
+    height: 100px; 
+    /* FIXED: Changed from hidden to visible so the hat doesn't get cut off */
+    overflow: visible; 
 }
 
 .main-logo {
     position: absolute;
-    /* Adjusted logo size to fit the new taller bar */
-    height: 320px; 
+    /* FIXED: Reduced height slightly to fit better within the 100px bar */
+    height: 180px; 
     width: auto;
     max-width: none;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
+    left: 0;
+    /* FIXED: Adjusted vertical alignment so the logo is perfectly centered */
+    transform: translateY(-50%); 
     mix-blend-mode: multiply; 
     pointer-events: none;
 }
 
 /* Mobile Logo Adjustments */
 @media (max-width: 640px) {
-    /* Mobile height increased from 56px to 80px */
     .navbar, .nav-container, .logo-box { height: 80px !important; }
     .main-logo { 
-        height: 240px; 
-        transform: translate(-50%, -50%); 
+        height: 140px; 
+        transform: translateY(-50%); 
     }
     .logo-box { width: 160px; }
 }
