@@ -69,25 +69,27 @@
 
         /* Logo specific styling to handle the hat graphic */
         .main-logo {
-            height: 60px; /* Adjust this to change logo size */
+            height: 100px; /* Increased size from 60px to 100px */
             width: auto;
             object-fit: contain;
-            transition: opacity 0.3s ease;
+            /* multiply blend mode removes white background and makes it blend with the page tint */
+            mix-blend-mode: multiply; 
+            transition: transform 0.3s ease;
         }
         .main-logo:hover {
-            opacity: 0.8;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body class="font-sans antialiased">
 
     <!-- Header -->
-    <nav class="py-6 px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <nav class="py-4 px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             
             <!-- LOGO SECTION -->
             <a href="#" class="flex items-center">
-                <!-- Use your uploaded image name here -->
+                <!-- Pointing to your uploaded image -->
                 <img src="2026-05-15 13.37.09.jpg" 
                      alt="HUDY Travels Logo" 
                      class="main-logo"
