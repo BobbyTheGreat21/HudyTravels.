@@ -17,10 +17,10 @@
             theme: {
                 extend: {
                     colors: {
-                        petal: '#fdf2f0',      /* Background tint */
-                        petalDeep: '#fae3e0',  /* Hover tint */
-                        brandPink: '#e8a9a2',  /* Primary Girly Pink */
-                        brandBlue: '#2c3e50',  /* Contrast Navy */
+                        petal: '#fdf2f0',
+                        petalDeep: '#fae3e0',
+                        brandPink: '#e8a9a2',
+                        brandBlue: '#2c3e50',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -40,7 +40,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Hide scrollbar but allow swiping */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -58,77 +57,78 @@
             background: linear-gradient(to bottom, #ffffff, #fdf2f0);
         }
         
-        .contact-btn {
-            transition: all 0.3s ease;
+        /* SLIM HEADER & CROPPED LOGO LOGIC */
+        .nav-container {
+            height: 70px; /* Slimmer header */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 180px; 
+            overflow: hidden; /* This acts as the crop frame */
+            position: relative;
+        }
+
+        .main-logo {
+            /* We make the image huge but use negative margins to center the actual art */
+            height: 350px; 
+            width: auto;
+            max-width: none;
+            margin-top: -15px; /* Pulls the logo art UP to center it in the slim bar */
+            mix-blend-mode: multiply;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-wrapper:hover .main-logo {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 640px) {
+            .nav-container { height: 60px; }
+            .logo-wrapper { width: 140px; }
+            .main-logo { height: 280px; margin-top: -10px; }
+        }
+
         .contact-btn:hover {
             background-color: #fdf2f0;
             color: #e8a9a2;
             transform: scale(1.1);
-        }
-
-        /* SVG Logo Styling */
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            height: 200px; /* Header height */
-            overflow: visible;
-        }
-
-        .main-logo {
-            height: 200px; /* Large scale for the SVG */
-            width: auto;
-            object-fit: contain;
-            /* Since it's an SVG, we don't need mix-blend-mode anymore, 
-               but it's safe to keep if there are any tiny stray white pixels */
-            mix-blend-mode: multiply; 
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
-        }
-        
-        .main-logo:hover {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 640px) {
-            .logo-wrapper { height: 100px; }
-            .main-logo { height: 140px; }
         }
     </style>
 </head>
 <body class="font-sans antialiased">
 
     <!-- Header -->
-    <nav class="py-2 px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-petal">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-petal px-8">
+        <div class="max-w-6xl mx-auto nav-container">
             
-            <!-- LOGO SECTION -->
+            <!-- LOGO SECTION (Slim & Cropped) -->
             <a href="#" class="logo-wrapper">
                 <img src="HudyTravels.svg" 
                      alt="HUDY Travels Logo" 
-                     class="main-logo"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                
-                <!-- Fallback Text Logo if SVG fails to load -->
-                <div class="hidden flex-col leading-tight">
-                    <span class="font-serif text-2xl tracking-[0.2em] uppercase font-bold text-brandBlue">HUDY</span>
-                    <span class="text-[10px] tracking-[0.5em] uppercase text-brandPink font-semibold">Travels</span>
-                </div>
+                     class="main-logo">
             </a>
 
-            <div class="hidden md:flex gap-8 items-center">
-                <a href="#destinations" class="text-[10px] uppercase tracking-widest hover:text-brandPink transition-colors">Destinations</a>
-                <a href="#about" class="text-[10px] uppercase tracking-widest hover:text-brandPink transition-colors">About</a>
-                <a href="mailto:hello@hudytravels.com?subject=Travel Inquiry" class="bg-brandPink text-white px-6 py-2 rounded-full text-[10px] uppercase tracking-widest hover:bg-brandBlue transition-all shadow-sm">Inquire</a>
+            <!-- NAV LINKS (Aligned to slim header) -->
+            <div class="hidden md:flex gap-10 items-center">
+                <a href="#destinations" class="text-[10px] uppercase tracking-[0.2em] hover:text-brandPink transition-colors font-medium">Destinations</a>
+                <a href="#about" class="text-[10px] uppercase tracking-[0.2em] hover:text-brandPink transition-colors font-medium">About</a>
+                <a href="mailto:hello@hudytravels.com" class="bg-brandPink text-white px-7 py-2.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-brandBlue transition-all shadow-sm">Inquire</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="px-8 py-20 fade-in pink-gradient">
+    <section class="px-8 py-20 md:py-32 fade-in pink-gradient">
         <div class="max-w-3xl mx-auto text-center">
-            <span class="text-brandPink text-[10px] uppercase tracking-[0.4em] mb-4 block font-bold">Bespoke Curations</span>
-            <h1 class="font-serif text-5xl md:text-7xl text-brandBlue leading-tight mb-8">
+            <span class="text-brandPink text-[10px] uppercase tracking-[0.4em] mb-6 block font-bold">Bespoke Travel Curations</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-brandBlue leading-[1.1] mb-8">
                 Curated journeys,<br><span class="italic text-brandPink">just for you.</span>
             </h1>
             <p class="text-gray-400 font-light text-lg leading-relaxed max-w-xl mx-auto">
@@ -148,7 +148,6 @@
         </div>
         
         <div class="flex overflow-x-auto gap-8 px-8 no-scrollbar snap-x snap-mandatory">
-            <!-- Card 1 -->
             <div class="destination-card snap-center group cursor-pointer">
                 <div class="aspect-[4/5] bg-petal overflow-hidden rounded-2xl relative shadow-sm">
                     <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
@@ -161,7 +160,6 @@
                 <p class="text-[10px] uppercase tracking-widest text-brandPink mt-1">Secluded Bliss</p>
             </div>
 
-            <!-- Card 2 -->
             <div class="destination-card snap-center group cursor-pointer">
                 <div class="aspect-[4/5] bg-petal overflow-hidden rounded-2xl relative shadow-sm">
                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
@@ -174,7 +172,6 @@
                 <p class="text-[10px] uppercase tracking-widest text-brandPink mt-1">Urban Glamour</p>
             </div>
 
-            <!-- Card 3 -->
             <div class="destination-card snap-center group cursor-pointer">
                 <div class="aspect-[4/5] bg-petal overflow-hidden rounded-2xl relative shadow-sm">
                     <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Japan" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
@@ -198,7 +195,6 @@
             </div>
             
             <div class="grid gap-12">
-                <!-- Package 1 -->
                 <div class="flex flex-col md:flex-row justify-between items-start gap-4 pb-12 border-b border-white">
                     <div class="md:w-1/3">
                         <h3 class="font-serif text-xl text-brandBlue italic">01. The Essential</h3>
@@ -209,7 +205,6 @@
                     </div>
                 </div>
 
-                <!-- Package 2 -->
                 <div class="flex flex-col md:flex-row justify-between items-start gap-4 pb-12 border-b border-white">
                     <div class="md:w-1/3">
                         <h3 class="font-serif text-xl text-brandBlue italic">02. The Signature</h3>
@@ -217,17 +212,6 @@
                     </div>
                     <div class="md:w-2/3">
                         <p class="text-gray-500 font-light text-sm leading-relaxed">A complete journey including day-to-day itineraries, private transfers, dining reservations, and curated excursions.</p>
-                    </div>
-                </div>
-
-                <!-- Package 3 -->
-                <div class="flex flex-col md:flex-row justify-between items-start gap-4">
-                    <div class="md:w-1/3">
-                        <h3 class="font-serif text-xl text-brandBlue italic">03. The Milestone</h3>
-                        <p class="text-[9px] uppercase tracking-widest text-brandPink mt-2 font-bold">Celebrations</p>
-                    </div>
-                    <div class="md:w-2/3">
-                        <p class="text-gray-500 font-light text-sm leading-relaxed">Honeymoons, birthdays, and anniversaries. We focus on the special surprises that make travel truly memorable.</p>
                     </div>
                 </div>
             </div>
@@ -245,48 +229,25 @@
             <div>
                 <span class="text-brandPink text-[10px] uppercase tracking-widest block mb-4 font-bold italic">The Curator</span>
                 <h2 class="font-serif text-4xl text-brandBlue mb-6">Hello, I'm Hudha.</h2>
-                <p class="text-gray-500 font-light leading-relaxed mb-6">
+                <p class="text-gray-500 font-light leading-relaxed mb-8">
                     Travel should be a feeling, not just a flight. I believe luxury is the peace of mind that comes when every detail has already been taken care of.
-                </p>
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">
-                    Based in the Maldives and traveling the world, I bring personal relationships with hotels and an eye for aesthetics to every client trip.
                 </p>
                 <div class="font-serif italic text-brandPink text-xl font-bold">— Hudha</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Links -->
+    <!-- Contact -->
     <section class="py-24 px-8 text-center bg-petal/20">
         <div class="max-w-xl mx-auto">
             <h3 class="font-serif text-3xl mb-4 text-brandBlue">Ready for your escape?</h3>
-            <p class="text-gray-400 text-sm mb-12 font-light italic">Let's craft your next dream journey together.</p>
-            
-            <div class="flex flex-col gap-10 items-center">
-                <!-- Large Inquiry Button -->
-                <a href="mailto:hello@hudytravels.com?subject=Travel%20Inquiry" class="bg-brandPink text-white px-16 py-5 rounded-full text-xs uppercase tracking-[0.3em] font-bold hover:bg-brandBlue hover:scale-105 transition-all shadow-lg">
+            <div class="flex flex-col gap-10 items-center mt-12">
+                <a href="mailto:hello@hudytravels.com" class="bg-brandPink text-white px-16 py-5 rounded-full text-xs uppercase tracking-[0.3em] font-bold hover:bg-brandBlue hover:scale-105 transition-all shadow-lg">
                     Inquire via Email
                 </a>
-                
-                <!-- Social Icons Section -->
-                <div class="flex gap-8 md:gap-12 mt-4">
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/yourphonenumber" target="_blank" class="contact-btn text-brandBlue flex flex-col items-center gap-2 group">
-                        <i class="fa-brands fa-whatsapp text-2xl group-hover:text-brandPink"></i>
-                        <span class="text-[9px] uppercase tracking-widest font-bold">WhatsApp</span>
-                    </a>
-                    
-                    <!-- Telegram -->
-                    <a href="https://t.me/yourusername" target="_blank" class="contact-btn text-brandBlue flex flex-col items-center gap-2 group">
-                        <i class="fa-brands fa-telegram text-2xl group-hover:text-brandPink"></i>
-                        <span class="text-[9px] uppercase tracking-widest font-bold">Telegram</span>
-                    </a>
-                    
-                    <!-- Instagram -->
-                    <a href="https://instagram.com/yourprofile" target="_blank" class="contact-btn text-brandBlue flex flex-col items-center gap-2 group">
-                        <i class="fa-brands fa-instagram text-2xl group-hover:text-brandPink"></i>
-                        <span class="text-[9px] uppercase tracking-widest font-bold">Instagram</span>
-                    </a>
+                <div class="flex gap-12">
+                    <a href="#" class="text-brandBlue hover:text-brandPink transition-all"><i class="fa-brands fa-whatsapp text-2xl"></i></a>
+                    <a href="#" class="text-brandBlue hover:text-brandPink transition-all"><i class="fa-brands fa-instagram text-2xl"></i></a>
                 </div>
             </div>
         </div>
