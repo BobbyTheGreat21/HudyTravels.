@@ -31,7 +31,7 @@ body {
 .main-logo {
     position: absolute;
     /* --- EDIT HEIGHT BELOW TO CHANGE LOGO SIZE --- */
-    height: 180px; 
+    height: 100px; 
     width: auto;
     max-width: none;
     top: 50%;
