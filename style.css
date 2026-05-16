@@ -1,17 +1,14 @@
-/* Variables */
-:root {
-    --petal: #fdf2f0;
-    --brand-pink: #e8a9a2;
-    --brand-blue: #2c3e50;
-    --text-gray: #4a4a4a;
+/* --- BASE STYLES --- */
+html { 
+    scroll-padding-top: 100px; 
 }
 
-/* Base Styles */
-html { scroll-padding-top: 100px; }
-body { background-color: #ffffff; color: var(--text-gray); }
+body { 
+    background-color: #ffffff; 
+    color: #4a4a4a; 
+}
 
-/* --- LOGO ENGINE (CHANGE SIZE HERE) --- */
-
+/* --- LOGO & NAVBAR ENGINE --- */
 .navbar {
     height: 64px !important;
     background-color: #ffffff;
@@ -27,33 +24,34 @@ body { background-color: #ffffff; color: var(--text-gray); }
 .logo-box {
     position: relative;
     width: 180px; 
-    height: 430px;
+    height: 64px;
     overflow: hidden; 
 }
 
 .main-logo {
     position: absolute;
-    height: 420px; /* <--- 1. ADJUST SIZE HERE */
+    /* --- EDIT HEIGHT BELOW TO CHANGE LOGO SIZE --- */
+    height: 280px; 
     width: auto;
     max-width: none;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -49%); /* <--- 2. ADJUST CENTERING HERE */
-    mix-blend-mode: multiply; /* Blends grey background into white */
+    transform: translate(-50%, -49%); 
+    mix-blend-mode: multiply; 
     pointer-events: none;
 }
 
+/* Mobile Logo Adjustments */
 @media (max-width: 640px) {
     .navbar, .nav-container, .logo-box { height: 56px !important; }
     .main-logo { 
-        height: 340px; /* <--- MOBILE LOGO SIZE */
+        height: 220px; 
         transform: translate(-50%, -48.5%); 
     }
     .logo-box { width: 140px; }
 }
 
 /* --- NAVIGATION LINKS --- */
-
 .nav-link {
     font-size: 10px;
     text-transform: uppercase;
@@ -62,65 +60,103 @@ body { background-color: #ffffff; color: var(--text-gray); }
     transition: color 0.3s ease;
 }
 
-.nav-link:hover { color: var(--brand-pink); }
+.nav-link:hover { 
+    color: #e8a9a2; 
+}
 
+/* --- INQUIRE BUTTON --- */
 .btn-inquire {
-    background-color: var(--brand-pink);
-    color: white;
-    padding: 0.5rem 1.5rem;
+    background-color: #e8a9a2;
+    color: white !important;
+    padding: 0.8rem 2rem;
     border-radius: 9999px;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 700;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
-.btn-inquire:hover { background-color: var(--brand-blue); }
+.btn-inquire:hover { 
+    background-color: #2c3e50; 
+    transform: scale(1.05); 
+}
 
-/* --- OTHER UI ELEMENTS --- */
+/* --- SOCIAL & CONTACT ICONS --- */
+.contact-icon-link {
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.fade-in { animation: fadeIn 1.5s ease-out forwards; }
+.contact-icon-link:hover {
+    color: #e8a9a2;
+    transform: translateY(-5px);
+}
+
+/* --- UI ELEMENTS & ANIMATIONS --- */
+.pink-gradient { 
+    background: linear-gradient(to bottom, #ffffff, #fdf2f0); 
+}
+
+.fade-in { 
+    animation: fadeIn 1.5s ease-out forwards; 
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.pink-gradient { background: linear-gradient(to bottom, #ffffff, var(--petal)); }
-
+/* Scrollbar Hiding */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-.destination-card {
-    min-width: 280px;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+/* --- DESTINATION CARDS --- */
+.destination-card { 
+    min-width: 280px; 
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
 }
-@media (min-width: 768px) { .destination-card { min-width: 380px; } }
 
 .card-image-wrapper {
     aspect-ratio: 4/5;
-    background-color: var(--petal);
+    background-color: #fdf2f0;
     overflow: hidden;
     border-radius: 1rem;
     position: relative;
 }
 
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1s ease;
+.card-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 1s ease; 
 }
 
-.destination-card:hover .card-img { transform: scale(1.1); }
-
-.about-frame {
-    position: absolute;
-    inset: -1rem;
-    border: 1px solid rgba(232, 169, 162, 0.3);
-    border-radius: 1rem;
+.destination-card:hover .card-img { 
+    transform: scale(1.1); 
 }
 
-.about-image { width: 100%; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-.about-text { color: #6b7280; font-weight: 300; line-height: 1.6; }
-.footer-text { font-size: 9px; color: #d1d5db; text-transform: uppercase; letter-spacing: 0.5em; font-weight: 500; }
+/* --- ABOUT SECTION ELEMENTS --- */
+.about-frame { 
+    position: absolute; 
+    inset: -1rem; 
+    border: 1px solid rgba(232, 169, 162, 0.3); 
+    border-radius: 1rem; 
+}
+
+.about-image { 
+    width: 100%; 
+    border-radius: 1rem; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
+}
+
+.footer-text { 
+    font-size: 9px; 
+    color: #d1d5db; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5em; 
+}
