@@ -66,17 +66,40 @@
             color: #e8a9a2;
             transform: scale(1.1);
         }
+
+        /* Logo specific styling to handle the hat graphic */
+        .main-logo {
+            height: 60px; /* Adjust this to change logo size */
+            width: auto;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+        .main-logo:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
 
     <!-- Header -->
-    <nav class="py-8 px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <nav class="py-6 px-8 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex flex-col">
-                <span class="font-serif text-2xl tracking-[0.2em] uppercase font-bold text-brandBlue">HUDY</span>
-                <span class="text-[10px] tracking-[0.5em] uppercase text-brandPink font-semibold">Travels</span>
-            </div>
+            
+            <!-- LOGO SECTION -->
+            <a href="#" class="flex items-center">
+                <!-- Use your uploaded image name here -->
+                <img src="2026-05-15 13.37.09.jpg" 
+                     alt="HUDY Travels Logo" 
+                     class="main-logo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
+                <!-- Fallback Text Logo if image fails to load -->
+                <div class="hidden flex-col leading-tight">
+                    <span class="font-serif text-2xl tracking-[0.2em] uppercase font-bold text-brandBlue">HUDY</span>
+                    <span class="text-[10px] tracking-[0.5em] uppercase text-brandPink font-semibold">Travels</span>
+                </div>
+            </a>
+
             <div class="hidden md:flex gap-8 items-center">
                 <a href="#destinations" class="text-[10px] uppercase tracking-widest hover:text-brandPink transition-colors">Destinations</a>
                 <a href="#about" class="text-[10px] uppercase tracking-widest hover:text-brandPink transition-colors">About</a>
