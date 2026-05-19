@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Tailwind Script -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -35,354 +34,181 @@
         html { scroll-padding-top: 80px; }
         body { background-color: #ffffff; color: #4a4a4a; }
 
-        .navbar {
-            height: 80px !important;
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-        }
-        .nav-container {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
+        .navbar { height: 80px !important; background-color: #ffffff; display: flex; align-items: center; }
+        .nav-container { height: 80px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
-        /* --- TEXT LOGO STYLING --- */
-        .text-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-        .text-logo span {
-            color: #e8a9a2;
-            font-style: italic;
-            font-weight: 400;
-        }
+        .text-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #2c3e50; text-decoration: none; }
+        .text-logo span { color: #e8a9a2; font-style: italic; font-weight: 400; }
 
-        /* --- NAVIGATION & BUTTONS --- */
-        .nav-link {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-weight: 600;
-            color: #2c3e50;
-            transition: color 0.3s ease;
-        }
+        .nav-link { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; color: #2c3e50; transition: color 0.3s ease; }
         .nav-link:hover { color: #e8a9a2; }
 
-        .btn-inquire {
-            background-color: #e8a9a2;
-            color: white !important;
-            padding: 0.7rem 1.8rem;
-            border-radius: 9999px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .btn-inquire:hover { 
-            background-color: #2c3e50; 
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(232, 169, 162, 0.4);
-        }
+        .btn-inquire { background-color: #e8a9a2; color: white !important; padding: 0.7rem 1.8rem; border-radius: 9999px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
+        .btn-inquire:hover { background-color: #2c3e50; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(232, 169, 162, 0.4); }
 
-        /* --- UI ELEMENTS & TRANSITIONS --- */
         .pink-gradient { background: linear-gradient(to bottom, #ffffff, #fdf2f0); }
         .fade-in { animation: fadeIn 1.2s ease-out forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* --- DYNAMIC CAROUSEL CARDS --- */
         .destination-card { min-width: 300px; flex: 1; max-width: 380px; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
-        .card-image-wrapper {
-            aspect-ratio: 4/5;
-            background-color: #fdf2f0;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            position: relative;
-        }
+        .card-image-wrapper { aspect-ratio: 4/5; background-color: #fdf2f0; overflow: hidden; border-radius: 1.5rem; position: relative; }
         .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
         .destination-card:hover .card-img { transform: scale(1.05); }
 
         .about-frame { position: absolute; inset: -1rem; border: 1px solid rgba(232, 169, 162, 0.25); border-radius: 1.5rem; }
         .about-image { width: 100%; border-radius: 1.5rem; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1); }
         
-        .contact-icon-link {
-            color: #2c3e50;
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-        }
+        .contact-icon-link { color: #2c3e50; transition: all 0.3s ease; font-size: 1.5rem; }
         .contact-icon-link:hover { color: #e8a9a2; transform: translateY(-5px); }
-
         .footer-text { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5em; }
     </style>
 </head>
 <body class="font-sans antialiased bg-white">
 
-    <!-- Header -->
     <nav class="navbar sticky top-0 z-50 border-b border-petal px-6 md:px-12">
         <div class="max-w-7xl mx-auto nav-container">
-            <!-- Text Logo -->
-            <a href="#" class="text-logo">
-                HUDY<span> Travels</span>
-            </a>
-            
-            <!-- Desktop Navigation Menu -->
+            <a href="#" class="text-logo">HUDY<span> Travels</span></a>
             <div class="hidden md:flex gap-12 items-center">
                 <a href="#destinations" class="nav-link">The Maldives</a>
                 <a href="#about" class="nav-link">The Curator</a>
                 <a href="#services" class="nav-link">Bespoke Services</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
                 <a href="mailto:hello@hudytravels.com" class="btn-inquire">Plan Your Trip</a>
             </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-brandBlue focus:outline-none p-2" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars-staggered text-xl"></i>
-            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-brandBlue focus:outline-none p-2" aria-label="Toggle Menu"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
         </div>
     </nav>
 
-    <!-- Mobile Navigation Drawer Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center gap-8">
-        <button id="mobile-menu-close" class="absolute top-6 right-6 text-brandBlue text-2xl p-2" aria-label="Close Menu">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-brandBlue text-2xl p-2" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
         <a href="#destinations" class="mobile-nav-link nav-link text-lg">The Maldives</a>
         <a href="#about" class="mobile-nav-link nav-link text-lg">The Curator</a>
         <a href="#services" class="mobile-nav-link nav-link text-lg">Bespoke Services</a>
+        <a href="#gallery" class="mobile-nav-link nav-link text-lg">Gallery</a>
         <a href="mailto:hello@hudytravels.com" class="btn-inquire text-sm tracking-[0.2em]">Plan Your Trip</a>
     </div>
 
     <!-- Hero -->
-    <section class="px-6 py-24 md:py-40 fade-in pink-gradient">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="text-brandPink text-[11px] uppercase tracking-[0.5em] mb-8 block font-bold">Bespoke Maldives Curations</span>
-            <h1 class="font-serif text-5xl md:text-8xl text-brandBlue leading-[1.05] mb-10">
+    <section class="px-6 py-24 md:py-32 fade-in pink-gradient flex items-center justify-center min-h-[60vh]">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-brandPink text-[11px] uppercase tracking-[0.5em] mb-6 block font-bold">Bespoke Maldives Curations</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-brandBlue leading-[1.1] mb-8">
                 Curated island escapes,<br><span class="italic text-brandPink font-normal">just for you.</span>
             </h1>
-            <p class="text-gray-400 font-light text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            <p class="text-gray-500 font-light text-lg md:text-xl leading-relaxed mx-auto">
                 Elegantly designed travel experiences across the Maldives. From luxury resorts to boutique local islands, let me handle the details while you enjoy the escape.
             </p>
         </div>
     </section>
 
-    <!-- Destinations / The Maldives Collection -->
+    <!-- [Rest of sections remain identical to the previous version] -->
     <section id="destinations" class="py-24 overflow-hidden bg-white">
         <div class="px-6 md:px-12 max-w-7xl mx-auto mb-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div>
                 <h2 class="font-serif text-4xl text-brandBlue italic">The Maldives Collection</h2>
                 <div class="w-12 h-[2px] bg-brandPink mt-3"></div>
             </div>
-            
-            <div class="flex flex-wrap items-center gap-4">
-                <span class="text-[10px] uppercase tracking-widest text-brandPink font-bold hidden sm:inline ml-2">Scroll to view</span>
-            </div>
+            <div class="flex flex-wrap items-center gap-4"><span class="text-[10px] uppercase tracking-widest text-brandPink font-bold hidden sm:inline ml-2">Scroll to view</span></div>
         </div>
 
-        <!-- Dynamic Collection Carousel Container -->
         <div id="carousel-container" class="flex overflow-x-auto md:justify-center gap-10 px-6 md:px-12 no-scrollbar snap-x snap-mandatory">
-            
-            <!-- Experience Card 1 -->
             <div class="destination-card snap-center group cursor-pointer" data-id="card-1">
-                <div class="card-image-wrapper">
-                    <img id="img-card-1" src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Luxury Resorts Maldives" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/800x1000/fdf2f0/2c3e50?text=Luxury+Resorts';">
-                </div>
-                <div class="mt-8 flex justify-between items-center">
-                    <p id="title-card-1" class="font-serif text-2xl text-brandBlue">Luxury Resorts</p>
-                    <div class="h-[1px] w-10 bg-brandPink/30"></div>
-                </div>
+                <div class="card-image-wrapper"><img id="img-card-1" src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Luxury Resorts Maldives" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/800x1000/fdf2f0/2c3e50?text=Luxury+Resorts';"></div>
+                <div class="mt-8 flex justify-between items-center"><p id="title-card-1" class="font-serif text-2xl text-brandBlue">Luxury Resorts</p><div class="h-[1px] w-10 bg-brandPink/30"></div></div>
                 <p id="subtitle-card-1" class="text-[12px] text-gray-600 leading-relaxed mt-3 font-medium">Secluded Bliss — Private island escapes featuring gorgeous overwater bungalows and personalized luxury care.</p>
             </div>
-
-            <!-- Experience Card 2 -->
             <div class="destination-card snap-center group cursor-pointer" data-id="card-2">
-                <div class="card-image-wrapper">
-                    <img id="img-card-2" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80" alt="Local Island Stays Maldives" class="card-img">
-                </div>
-                <div class="mt-8 flex justify-between items-center">
-                    <p id="title-card-2" class="font-serif text-2xl text-brandBlue">Local Islands</p>
-                    <div class="h-[1px] w-10 bg-brandPink/30"></div>
-                </div>
+                <div class="card-image-wrapper"><img id="img-card-2" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80" alt="Local Island Stays Maldives" class="card-img"></div>
+                <div class="mt-8 flex justify-between items-center"><p id="title-card-2" class="font-serif text-2xl text-brandBlue">Local Islands</p><div class="h-[1px] w-10 bg-brandPink/30"></div></div>
                 <p id="subtitle-card-2" class="text-[12px] text-gray-600 leading-relaxed mt-3 font-medium">Authentic Culture — Experience authentic island hospitality with custom guesthouse packages and cultural warmth.</p>
             </div>
-
-            <!-- Experience Card 3 -->
             <div class="destination-card snap-center group cursor-pointer" data-id="card-3">
-                <div class="card-image-wrapper">
-                    <img id="img-card-3" src="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&w=800&q=80" alt="Ocean Excursions Maldives" class="card-img">
-                </div>
-                <div class="mt-8 flex justify-between items-center">
-                    <p id="title-card-3" class="font-serif text-2xl text-brandBlue">Excursions</p>
-                    <div class="h-[1px] w-10 bg-brandPink/30"></div>
-                </div>
+                <div class="card-image-wrapper"><img id="img-card-3" src="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&w=800&q=80" alt="Ocean Excursions Maldives" class="card-img"></div>
+                <div class="mt-8 flex justify-between items-center"><p id="title-card-3" class="font-serif text-2xl text-brandBlue">Excursions</p><div class="h-[1px] w-10 bg-brandPink/30"></div></div>
                 <p id="subtitle-card-3" class="text-[12px] text-gray-600 leading-relaxed mt-3 font-medium">Marine Adventures — Custom snorkeling guides, dynamic sandbank retreats, sunset sails, and pristine whale shark encounters.</p>
             </div>
-
         </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="py-32 px-6 bg-white border-t border-petal/30">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
-            <div class="relative">
-                <div class="about-frame transform translate-x-6 translate-y-6 -z-10"></div>
-                <!-- Profile Image -->
-                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Hudha" class="about-image">
-            </div>
-            <div>
-                <span class="text-brandPink text-[11px] uppercase tracking-widest block mb-6 font-bold italic">The Curator</span>
-                <h2 class="font-serif text-5xl text-brandBlue mb-8 leading-tight">Hello, I'm Hudha.</h2>
-                <p class="text-gray-500 font-light text-lg leading-relaxed mb-10">
-                    An island journey should be a feeling, not just a destination. I believe true luxury is the peace of mind that comes when every detail of your Maldives escape has been flawlessly curated.
-                </p>
-                <div class="font-serif italic text-brandPink text-2xl font-bold">— Hudha</div>
-            </div>
+            <div class="relative"><div class="about-frame transform translate-x-6 translate-y-6 -z-10"></div><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Hudha" class="about-image"></div>
+            <div><span class="text-brandPink text-[11px] uppercase tracking-widest block mb-6 font-bold italic">The Curator</span><h2 class="font-serif text-5xl text-brandBlue mb-8 leading-tight">Hello, I'm Hudha.</h2><p class="text-gray-500 font-light text-lg leading-relaxed mb-10">An island journey should be a feeling, not just a destination. I believe true luxury is the peace of mind that comes when every detail of your Maldives escape has been flawlessly curated.</p><div class="font-serif italic text-brandPink text-2xl font-bold">— Hudha</div></div>
         </div>
     </section>
 
-    <!-- Bespoke Maldives Services -->
     <section id="services" class="py-32 px-6 bg-petal/10 border-t border-petal/40">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20">
-                <span class="text-brandPink text-[11px] uppercase tracking-[0.4em] block mb-4 font-bold">Personalized Island Curation</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-brandBlue">Bespoke Travel Services</h2>
-                <div class="w-12 h-[2px] bg-brandPink mt-4 mx-auto"></div>
-            </div>
-
+            <div class="text-center mb-20"><span class="text-brandPink text-[11px] uppercase tracking-[0.4em] block mb-4 font-bold">Personalized Island Curation</span><h2 class="font-serif text-4xl md:text-5xl text-brandBlue">Bespoke Travel Services</h2><div class="w-12 h-[2px] bg-brandPink mt-4 mx-auto"></div></div>
             <div class="grid md:grid-cols-3 gap-12 md:gap-16">
-                <!-- Service 1: Itinerary Planning -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-brandBlue mb-4">Itinerary Planning</h3>
-                    <p class="text-gray-500 font-light text-sm leading-relaxed">
-                        Custom step-by-step journeys designed around your pace. Seamlessly connecting island stays, transfers, and daily activities for a perfectly integrated vacation flow.
-                    </p>
-                </div>
-
-                <!-- Service 2: Resort & Guest House Curation -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6">
-                        <i class="fa-solid fa-hotel"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-brandBlue mb-4">Resort & Stay Selection</h3>
-                    <p class="text-gray-500 font-light text-sm leading-relaxed">
-                        Hand-selecting the absolute best private island resorts or authentic local guesthouses. I match you with premium rooms, overwater villas, and hidden boutique gems.
-                    </p>
-                </div>
-
-                <!-- Service 3: Excursion Curation -->
-                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1">
-                    <div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6">
-                        <i class="fa-solid fa-sailboat"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-brandBlue mb-4">Curated Excursions</h3>
-                    <p class="text-gray-500 font-light text-sm leading-relaxed">
-                        Unforgettable Maldivian experiences. From private sandbank dinners and luxury sunset sailing cruises to snorkeling guides with manta rays and whale sharks.
-                    </p>
-                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1"><div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6"><i class="fa-solid fa-map-location-dot"></i></div><h3 class="font-serif text-2xl text-brandBlue mb-4">Itinerary Planning</h3><p class="text-gray-500 font-light text-sm leading-relaxed">Custom step-by-step journeys designed around your pace. Seamlessly connecting island stays, transfers, and daily activities for a perfectly integrated vacation flow.</p></div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1"><div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6"><i class="fa-solid fa-hotel"></i></div><h3 class="font-serif text-2xl text-brandBlue mb-4">Resort & Stay Selection</h3><p class="text-gray-500 font-light text-sm leading-relaxed">Hand-selecting the absolute best private island resorts or authentic local guesthouses. I match you with premium rooms, overwater villas, and hidden boutique gems.</p></div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-[1.5rem] shadow-sm border border-petal/50 transition duration-300 hover:shadow-md hover:-translate-y-1"><div class="w-16 h-16 rounded-full bg-petal flex items-center justify-center text-brandPink text-2xl mb-6"><i class="fa-solid fa-sailboat"></i></div><h3 class="font-serif text-2xl text-brandBlue mb-4">Curated Excursions</h3><p class="text-gray-500 font-light text-sm leading-relaxed">Unforgettable Maldivian experiences. From private sandbank dinners and luxury sunset sailing cruises to snorkeling guides with manta rays and whale sharks.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <section id="gallery" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20"><span class="text-brandPink text-[11px] uppercase tracking-[0.4em] block mb-4 font-bold">Captured Moments</span><h2 class="font-serif text-4xl md:text-5xl text-brandBlue">Media Gallery</h2><div class="w-12 h-[2px] bg-brandPink mt-4 mx-auto"></div></div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Gallery 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=400&q=80" alt="Gallery 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=400&q=80" alt="Gallery 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&w=400&q=80" alt="Gallery 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&q=80" alt="Gallery 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=400&q=80" alt="Gallery 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400&q=80" alt="Gallery 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=400&q=80" alt="Gallery 8" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Gallery 9" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=400&q=80" alt="Gallery 10" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1510414694553-271c6d86016e?auto=format&fit=crop&w=400&q=80" alt="Gallery 11" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-petal"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=400&q=80" alt="Gallery 12" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"></div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="py-32 px-6 text-center bg-petal/20 border-t border-petal">
         <div class="max-w-2xl mx-auto">
-            
-            <!-- Link pointing back to your site -->
-            <a href="https://bobbythegreat21.github.io/HudyTravels./" target="_blank" class="inline-block transition-transform hover:scale-105">
-                <!-- Company Logo Image -->
-                <img src="hudy-travels.png" 
-     alt="HUDY Travels Logo" 
-     class="mx-auto mb-8 w-full max-w-[300px] md:max-w-[320px] h-auto object-contain" 
-     onerror="this.onerror=null; this.src='https://placehold.co/200x200/fdf2f0/2c3e50?text=HUDY+Travels';">
-            </a>
-
-            <h3 class="font-serif text-4xl mb-6 text-brandBlue">Ready for your escape?</h3>
-            <p class="text-gray-400 font-light text-base mb-12 italic">Let's start planning your bespoke Maldives journey together.</p>
-            
-            <div class="flex flex-col gap-12 items-center">
-                <a href="mailto:hello@hudytravels.com" class="btn-inquire !px-20 !py-6 !text-xs shadow-lg tracking-[0.3em]">
-                    Inquire via Email
-                </a>
-                
-                <div class="flex gap-12">
-                    <a href="#" class="contact-icon-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="contact-icon-link" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="#" class="contact-icon-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
+            <a href="https://bobbythegreat21.github.io/HudyTravels./" target="_blank" class="inline-block transition-transform hover:scale-105"><img src="hudy-travels.png" alt="HUDY Travels Logo" class="mx-auto mb-8 w-full max-w-[300px] md:max-w-[320px] h-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x200/fdf2f0/2c3e50?text=HUDY+Travels';"></a>
+            <h3 class="font-serif text-4xl mb-6 text-brandBlue">Ready for your escape?</h3><p class="text-gray-400 font-light text-base mb-12 italic">Let's start planning your bespoke Maldives journey together.</p>
+            <div class="flex flex-col gap-12 items-center"><a href="mailto:hello@hudytravels.com" class="btn-inquire !px-20 !py-6 !text-xs shadow-lg tracking-[0.3em]">Inquire via Email</a>
+                <div class="flex gap-12"><a href="#" class="contact-icon-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><a href="#" class="contact-icon-link" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a><a href="#" class="contact-icon-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-16 bg-white text-center border-t border-petal">
-        <p class="footer-text">&copy; 2026 HUDY Travels &bull; Bespoke Maldives Curations</p>
-    </footer>
+    <footer class="py-16 bg-white text-center border-t border-petal"><p class="footer-text">&copy; 2026 HUDY Travels &bull; Bespoke Maldives Curations</p></footer>
 
-    <!-- Interactive Navigation & Persistent Data Loader -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenuClose = document.getElementById('mobile-menu-close');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('translate-x-full');
-                });
-            }
-
-            const closeMenu = () => {
-                if (mobileMenu) {
-                    mobileMenu.classList.add('translate-x-full');
-                }
-            };
-
-            if (mobileMenuClose) {
-                mobileMenuClose.addEventListener('click', closeMenu);
-            }
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
+            if (mobileMenuBtn && mobileMenu) { mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); }); }
+            const closeMenu = () => { if (mobileMenu) { mobileMenu.classList.add('translate-x-full'); } };
+            if (mobileMenuClose) { mobileMenuClose.addEventListener('click', closeMenu); }
+            mobileLinks.forEach(link => { link.addEventListener('click', closeMenu); });
             const loadCustomContent = () => {
                 const cardCount = 3;
                 for (let i = 1; i <= cardCount; i++) {
                     const savedImg = localStorage.getItem(`custom-img-card-${i}`);
                     const targetImg = document.getElementById(`img-card-${i}`);
-                    if (savedImg && targetImg) {
-                        targetImg.src = savedImg;
-                    }
+                    if (savedImg && targetImg) { targetImg.src = savedImg; }
                     const savedTitle = localStorage.getItem(`custom-title-card-${i}`);
                     const targetTitle = document.getElementById(`title-card-${i}`);
-                    if (savedTitle && targetTitle) {
-                        targetTitle.innerText = savedTitle;
-                    }
+                    if (savedTitle && targetTitle) { targetTitle.innerText = savedTitle; }
                     const savedSubtitle = localStorage.getItem(`custom-subtitle-card-${i}`);
                     const targetSubtitle = document.getElementById(`subtitle-card-${i}`);
-                    if (savedSubtitle && targetSubtitle) {
-                        targetSubtitle.innerText = savedSubtitle;
-                    }
+                    if (savedSubtitle && targetSubtitle) { targetSubtitle.innerText = savedSubtitle; }
                 }
             };
-
             loadCustomContent();
         });
     </script>
-
 </body>
 </html>
