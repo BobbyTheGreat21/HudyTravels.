@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Original source images (pre-webp); kept locally, not deployed
+png/
