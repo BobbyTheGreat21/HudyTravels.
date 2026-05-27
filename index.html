@@ -34,7 +34,7 @@
         body { background-color: #ffffff; color: #4a4a4a; }
 
         .navbar { height: 80px !important; background-color: #ffffff; display: flex; align-items: center; }
-        .nav-container { height: 80px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .nav-container { height: 80px; display: flex; align-items: center; width: 100%; }
 
         .text-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #2c3e50; text-decoration: none; }
         .text-logo span { color: #e8a9a2; font-style: italic; font-weight: 400; }
@@ -70,15 +70,17 @@
     <nav class="navbar sticky top-0 z-50 border-b border-petal px-6 md:px-12">
         <div class="max-w-7xl mx-auto nav-container">
             <a href="#" class="text-logo">HUDY<span> Travels</span></a>
-            <a href="#hotels-and-resorts-section" class="nav-link ml-12">Hotels & Resorts</a>
-            <div class="hidden md:flex gap-12 items-center ml-auto">
+            
+            <div class="hidden md:flex items-center ml-auto gap-10">
+                <a href="#hotels-and-resorts-section" class="nav-link">Hotels & Resorts</a>
                 <a href="#destinations" class="nav-link">The Maldives</a>
                 <a href="#services" class="nav-link">Travel Services</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
                 <a href="#about" class="nav-link">The Curator</a>
                 <a href="#contact" class="btn-inquire">Plan Your Trip</a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-brandBlue focus:outline-none p-2" aria-label="Toggle Menu"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-brandBlue focus:outline-none p-2 ml-auto" aria-label="Toggle Menu"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
         </div>
     </nav>
 
@@ -202,9 +204,7 @@
             <h1 class="font-serif text-5xl text-brandBlue mb-4">Hotels & Resorts</h1>
             <p class="text-gray-500 mb-16">A curated selection of properties across the islands.</p>
             
-            <!-- Carousel container for horizontal scroll -->
             <div id="hotel-list" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar">
-                <!-- Properties will be injected here via JavaScript -->
             </div>
         </div>
     </section>
