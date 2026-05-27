@@ -69,10 +69,9 @@
 
     <nav class="navbar sticky top-0 z-50 border-b border-petal px-6 md:px-12">
         <div class="max-w-7xl mx-auto nav-container">
-            <!-- Added "Hotels & Resorts" to the far left -->
-            <a href="javascript:void(0)" onclick="showPage('hotels')" class="nav-link mr-12">Hotels & Resorts</a>
             <a href="#" class="text-logo">HUDY<span> Travels</span></a>
-            <div class="hidden md:flex gap-12 items-center">
+            <a href="#hotels-and-resorts-section" class="nav-link ml-12">Hotels & Resorts</a>
+            <div class="hidden md:flex gap-12 items-center ml-auto">
                 <a href="#destinations" class="nav-link">The Maldives</a>
                 <a href="#services" class="nav-link">Travel Services</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
@@ -96,10 +95,21 @@
     <main id="main-content">
         <section class="px-6 py-24 md:py-32 fade-in pink-gradient flex items-center justify-center min-h-[60vh]">
             <div class="max-w-3xl mx-auto text-center">
-            </h1>
+            <h1 class="font-serif text-5xl md:text-7xl text-brandBlue mb-8 italic">Your Gateway to the Maldives</h1>
             <p class="text-gray-500 font-light text-lg md:text-xl leading-relaxed mx-auto">
                 Thoughtfully planned travel experiences across the Maldives. From luxury resorts to boutique local islands, every detail is arranged so you can simply enjoy the escape
             </p>
+        </div>
+    </section>
+
+    <section id="hotels-and-resorts-section" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 mb-20">
+            <h2 class="font-serif text-4xl text-brandBlue mb-12">Resorts</h2>
+            <div id="resorts-carousel" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-serif text-4xl text-brandBlue mb-12">Hotels</h2>
+            <div id="hotels-carousel" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar"></div>
         </div>
     </section>
 
@@ -201,39 +211,42 @@
 
     <script>
         const properties = [
-            { name: "Kurumba Maldives", desc: "The first private island resort in the Maldives.", url: "https://www.kurumba.com/" },
-            { name: "Sheraton Maldives", desc: "A tropical paradise for families and couples.", url: "https://www.marriott.com/" },
-            { name: "Hard Rock Hotel", desc: "Music-inspired luxury with vibrant energy.", url: "https://www.hardrockhotels.com/" },
-            { name: "SAii Lagoon", desc: "Playful, stylish island escape.", url: "https://saiiresorts.com/" },
-            { name: "Hulhule Island Hotel", desc: "Convenience meets luxury near the airport.", url: "https://hih.com.mv/" },
-            { name: "The Somerset Hotel", desc: "Chic city hotel in the heart of Malé.", url: "https://www.somerset.mv/" },
-            { name: "Maagiri Hotel", desc: "Elegant stays overlooking the Indian Ocean.", url: "https://maagirihotel.com.mv/" },
-            { name: "Hotel Jen Malé", desc: "Modern comfort in the capital city.", url: "https://www.shangri-la.com/" },
-            { name: "Samann Grand", desc: "Premium boutique accommodation in Malé.", url: "https://samanngrand.com.mv/" },
-            { name: "Coral Queen Inn", desc: "Cozy local island hospitality.", url: "https://coralqueeninn.com/" },
-            { name: "Soneva Jani", desc: "Overwater villas with private slides.", url: "https://soneva.com/" },
-            { name: "Anantara Veli", desc: "Adult-only paradise of pure bliss.", url: "https://www.anantara.com/" },
-            { name: "Milaidhoo", desc: "Intimate and refined boutique island.", url: "https://www.milaidhoo.com/" },
-            { name: "W Maldives", desc: "Playful design in a lush setting.", url: "https://www.marriott.com/" },
-            { name: "Conrad Maldives", desc: "Underwater dining and iconic luxury.", url: "https://www.hilton.com/" },
-            { name: "Gili Lankanfushi", desc: "Rustic luxury with barefoot charm.", url: "https://gili-lankanfushi.com/" },
-            { name: "JOALI Maldives", desc: "Art-immersive luxury in Raa Atoll.", url: "https://joali.com/" },
-            { name: "Waldorf Astoria", desc: "Unmatched scale and sophistication.", url: "https://www.hilton.com/" },
-            { name: "St. Regis Vommuli", desc: "Contemporary elegance in Dhaalu Atoll.", url: "https://www.marriott.com/" },
-            { name: "One&Only Reethi Rah", desc: "The ultimate iconic island retreat.", url: "https://www.oneandonlyresorts.com/" }
+            { name: "Kurumba Maldives", desc: "The first private island resort in the Maldives.", url: "https://www.kurumba.com/", type: "resort" },
+            { name: "Sheraton Maldives", desc: "A tropical paradise for families and couples.", url: "https://www.marriott.com/", type: "resort" },
+            { name: "Hard Rock Hotel", desc: "Music-inspired luxury with vibrant energy.", url: "https://www.hardrockhotels.com/", type: "resort" },
+            { name: "SAii Lagoon", desc: "Playful, stylish island escape.", url: "https://saiiresorts.com/", type: "resort" },
+            { name: "Soneva Jani", desc: "Overwater villas with private slides.", url: "https://soneva.com/", type: "resort" },
+            { name: "Anantara Veli", desc: "Adult-only paradise of pure bliss.", url: "https://www.anantara.com/", type: "resort" },
+            { name: "Milaidhoo", desc: "Intimate and refined boutique island.", url: "https://www.milaidhoo.com/", type: "resort" },
+            { name: "W Maldives", desc: "Playful design in a lush setting.", url: "https://www.marriott.com/", type: "resort" },
+            { name: "Conrad Maldives", desc: "Underwater dining and iconic luxury.", url: "https://www.hilton.com/", type: "resort" },
+            { name: "Gili Lankanfushi", desc: "Rustic luxury with barefoot charm.", url: "https://gili-lankanfushi.com/", type: "resort" },
+            { name: "Hulhule Island Hotel", desc: "Convenience meets luxury near the airport.", url: "https://hih.com.mv/", type: "hotel" },
+            { name: "The Somerset Hotel", desc: "Chic city hotel in the heart of Malé.", url: "https://www.somerset.mv/", type: "hotel" },
+            { name: "Maagiri Hotel", desc: "Elegant stays overlooking the Indian Ocean.", url: "https://maagirihotel.com.mv/", type: "hotel" },
+            { name: "Hotel Jen Malé", desc: "Modern comfort in the capital city.", url: "https://www.shangri-la.com/", type: "hotel" },
+            { name: "Samann Grand", desc: "Premium boutique accommodation in Malé.", url: "https://samanngrand.com.mv/", type: "hotel" },
+            { name: "Coral Queen Inn", desc: "Cozy local island hospitality.", url: "https://coralqueeninn.com/", type: "hotel" },
+            { name: "JOALI Maldives", desc: "Art-immersive luxury in Raa Atoll.", url: "https://joali.com/", type: "hotel" },
+            { name: "Waldorf Astoria", desc: "Unmatched scale and sophistication.", url: "https://www.hilton.com/", type: "hotel" },
+            { name: "St. Regis Vommuli", desc: "Contemporary elegance in Dhaalu Atoll.", url: "https://www.marriott.com/", type: "hotel" },
+            { name: "One&Only Reethi Rah", desc: "The ultimate iconic island retreat.", url: "https://www.oneandonlyresorts.com/", type: "hotel" }
         ];
 
-        const list = document.getElementById('hotel-list');
-        properties.forEach((p, index) => {
+        const resortsList = document.getElementById('resorts-carousel');
+        const hotelsList = document.getElementById('hotels-carousel');
+
+        properties.forEach(p => {
             const card = document.createElement('div');
-            card.className = "min-w-[300px] md:min-w-[350px] border border-petal/50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 snap-center bg-white";
+            card.className = "min-w-[300px] md:min-w-[350px] border border-petal/50 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 snap-center bg-white";
             card.innerHTML = `
                 <div class="h-48 bg-petal rounded-2xl mb-6 flex items-center justify-center text-brandPink/50"><i class="fa-solid fa-hotel text-5xl"></i></div>
                 <h3 class="font-serif text-2xl text-brandBlue mb-3">${p.name}</h3>
                 <p class="text-sm text-gray-500 mb-8 min-h-[4em] leading-relaxed">${p.desc}</p>
                 <a href="${p.url}" target="_blank" class="inline-block text-xs font-bold uppercase tracking-widest text-brandPink hover:text-brandBlue hover:underline underline-offset-4">Visit Official Site &rarr;</a>
             `;
-            list.appendChild(card);
+            if (p.type === 'resort') resortsList.appendChild(card);
+            else hotelsList.appendChild(card);
         });
 
         function showPage(page) {
